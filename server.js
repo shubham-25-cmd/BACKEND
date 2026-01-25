@@ -1,11 +1,16 @@
-const express = require("express")
-const app=express()// server instanc create krna
-
-app.get('/', (req,res)=>{
-  res.send("hello world")
+const express= require('express')
+const app = express()
+app.use(express.json())
+const notes=[]
+app.post("/notes",(req,res)=>{
+  console.log(req.body)
+  notes.push(req.body)
+  res.send("notes created")
+})
+app.get("/notes",(req,res)=>{
+res.send(notes)
 })
 
-app.get("/about", (req, res)=>{
-  res.send("hello world shubham")
+app.listen(3000,()=>{
+  console.log("server is running on port 3000")
 })
-app.listen(3000)//server start karna
