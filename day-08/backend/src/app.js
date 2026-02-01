@@ -2,7 +2,9 @@
 
 const express = require('express');
 const Notemodel=require('../models/notes.models');
+const cors = require('cors');
 const app = express();
+app.use(cors());
 app.use(express.json());
 //post api create krna
 // create new note and save new data in mongoodb
