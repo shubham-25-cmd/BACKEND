@@ -28,3 +28,8 @@ html{
   max-width: 20rem;
   color: tomato;
 }
+.note-create_form{
+  display:flex;
+  gap:1rem;
+  
+}
