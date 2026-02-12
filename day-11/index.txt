@@ -1,0 +1,16 @@
+authentication =>
+register = *user ka data save krna * token user ko dena 
+log in 
+log out 
+otp registration
+
+post=>{
+create 
+can see the feed 
+like post 
+save post 
+
+} users =>{
+  followers 
+  following 
+}
