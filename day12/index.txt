@@ -14,3 +14,10 @@ save post
   followers 
   following 
 }
+post {
+  caption,
+  img_url;
+  user_id,
+  created date : date - time ;
+  
+}

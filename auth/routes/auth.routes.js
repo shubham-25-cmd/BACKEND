@@ -1,7 +1,7 @@
 const express = require("express");
 const authroutes = express.Router();
-const usermodel = require("../models/user.model");
-const crypto = require("crypto");
+const usermodel = require("../src/models/user.model");
+const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken");
 
 authroutes.post("/register", async (req, res) => {
@@ -16,10 +16,7 @@ authroutes.post("/register", async (req, res) => {
       });
     }
 
-    const hashedPassword = crypto
-      .createHash("sha256")
-      .update(password)
-      .digest("hex");
+    const hashedPassword = await bcrypt.hash(password,10)
 
     const user = await usermodel.create({
       name,
@@ -75,7 +72,7 @@ const hash = crypto
   .update(password)
   .digest("hex");
 
-const isPasswordValid = hash === user.password;
+const isPasswordValid = await bcrypt.compare(password,user.password)
 
 if (!isPasswordValid) {
   return res.status(401).json({
